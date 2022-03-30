@@ -1,0 +1,22 @@
+{
+  "name": "web-app-final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "init-db": "node ./Database/init-db.js",
+    "start-dev": "npm run init-db && nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShotaKato1/web-app-final.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShotaKato1/web-app-final/issues"
+  },
+  "homepage": "https://github.com/ShotaKato1/web-app-final#readme"
+}
