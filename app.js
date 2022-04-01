@@ -9,6 +9,9 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
+// Allow access to static resources in the public directory
+app.use(express.static("public", {index: "index.html", extensions: ["html"]}));
+
 app.use(
     session({
 	store: new RedisStore({ client: redisClient }),
@@ -20,9 +23,9 @@ app.use(
 
 
 
-const UserModel = require("./Models/UserModel");
-const HostModel = require("./Models/hostModel");
+const HostController = require("./Controllers/hostControllers");
 
-
+app.post("/api/login", HostController.login);
+app.post("/api/host", HostController.createNewHost);
 
 module.exports = app;

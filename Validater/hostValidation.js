@@ -11,7 +11,7 @@ const schema = Joi.object({
 
 
     
-    username: Joi.string()
+    hostname: Joi.string()
                 .required()
 
 

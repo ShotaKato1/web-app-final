@@ -3,28 +3,22 @@ const db = require("./db");
 var crypto = require('crypto');
 
 
-async function addHost(username, password) {
+async function addHost(username, password, organization, email) {
 
     try{
         const hostID = crypto.randomUUID(username);
         const hash = await argon2.hash(password);
-        const sql = `INSERT INTO User (hostid, hostname, hash) VALUES (@hostID, @hostname, @hash)`;
+        const sql = `INSERT INTO Host (hostid, hostname, hash, organization, email)
+                     VALUES (@hostID, @hostname, @hash, @organization, @email)`;
         const stmt = db.prepare(sql);
-        stmt.run({userID, username, hash});
+        stmt.run({hostID, hostname, hash, organization, email});
     } catch(e){
         console.error(e);
     }
     
 }
 
-function getUserByUsername (username){
-    const sql = `SELECT * FROM User Where username=@username`;
-    const stmt = db.prepare(sql);
-    const record = stmt.get({"username": username});
-    return record;
-}
 
 module.exports = {
     addHost,
-    getUserByUsername,
 }
