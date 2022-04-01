@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/ShotaKato1/web-app-final/issues"
   },
-  "homepage": "https://github.com/ShotaKato1/web-app-final#readme"
+  "homepage": "https://github.com/ShotaKato1/web-app-final#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0"
+  }
 }
