@@ -1,6 +1,8 @@
 "use strict";
 const { sendStatus } = require("express/lib/response");
 const db = require("./db");
+const crypto = require("crypto"); 
+const argon2 = require('argon2');
 
 // need to make password hash function
 function addUser(user){
@@ -13,7 +15,6 @@ function addUser(user){
     const adduserStmt = db.prepare(sql);
     adduserStmt.run({user});
 }
-
 
 function getUser(organization){
     const sql = `
@@ -113,6 +114,7 @@ function checkTime(users,times){//a = 1-2 b = 2-3
 
 exports.addUser = addUser;
 exports.addUsers = addUsers;
+exports.createHost = createHost; 
 exports.checkTime = checkTime;
 exports.getUser = getUser;
 exports.getUserByorganization = getUserByorganization;
