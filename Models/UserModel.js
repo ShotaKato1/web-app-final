@@ -16,27 +16,6 @@ function addUser(user){
     adduserStmt.run({user});
 }
 
-async function createHost (hostname, password){
-    const uuid = crypto.randomUUID(); 
-    const hash = await argon2.hash(password); 
-    const sql = `
-    INSERT INTO Host
-        (hostid, hostname, hash)
-    VALUES
-        (@hostid, @hostname, @hash)
-    `; 
-    const stmt = db.prepare(sql);
-    try {
-        stmt.run({
-            "hostid": uuid,
-            "hostname": hostname,
-            "hash": hash,
-        });
-    } catch (err) {
-        console.error(err);
-    }
-}
-
 function getUser(organization){
     const sql = `
     SELECT * FROM User WHERE user = @user
