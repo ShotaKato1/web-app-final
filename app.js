@@ -5,6 +5,10 @@ const session = require('express-session');
 let RedisStore = require('connect-redis')(session);
 let redisClient = redis.createClient();
 
+const express = require("express");
+const app = express();
+app.use(express.json());
+
 app.use(
     session({
 	store: new RedisStore({ client: redisClient }),
@@ -14,9 +18,11 @@ app.use(
     })
 );
 
-const app = express();
-app.use(express.json());
+
 
 const UserModel = require("./Models/UserModel");
 const HostModel = require("./Models/hostModel");
-const express = require("express");
+
+
+
+module.exports = app;
