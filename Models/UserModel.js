@@ -1,6 +1,8 @@
 "use strict";
 const { sendStatus } = require("express/lib/response");
 const db = require("./db");
+const crypto = require("crypto"); 
+const argon2 = require('argon2');
 
 // need to make password hash function
 function addUser(user){
@@ -14,6 +16,26 @@ function addUser(user){
     adduserStmt.run({user});
 }
 
+async function createHost (hostname, password){
+    const uuid = crypto.randomUUID(); 
+    const hash = await argon2.hash(password); 
+    const sql = `
+    INSERT INTO Host
+        (hostid, hostname, hash)
+    VALUES
+        (@hostid, @hostname, @hash)
+    `; 
+    const stmt = db.prepare(sql);
+    try {
+        stmt.run({
+            "hostid": uuid,
+            "hostname": hostname,
+            "hash": hash,
+        });
+    } catch (err) {
+        console.error(err);
+    }
+}
 
 function getUser(organization){
     const sql = `
@@ -113,6 +135,7 @@ function checkTime(users,times){//a = 1-2 b = 2-3
 
 exports.addUser = addUser;
 exports.addUsers = addUsers;
+exports.createHost = createHost; 
 exports.checkTime = checkTime;
 exports.getUser = getUser;
 exports.getUserByorganization = getUserByorganization;
