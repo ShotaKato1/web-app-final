@@ -18,32 +18,21 @@ function addUser(user){
 
 function getUser(organization){
     const sql = `
-    SELECT * FROM User WHERE user = @user
+    SELECT * FROM User WHERE organization = @organization
     `;
     const getUserStmt = db.prepare(sql);
-    const record = getUserStmt.get({organization});
+    const record = getUserStmt.get();
+    return record;
     // how to get the data from same as organization?
 }
 
-function getUserByorganization (organization){
-    const sql = `SELECT * FROM User Where organization=@organization`;
-    const stmt = db.prepare(sql);
-    const record = stmt.get({"username": username});
-    return record;
-}
-
-// function getUsersByorganization(users){
-//     for(let x of users){
-//         getUserByorganization()
-//     }
-//     return users
-// }
-
-function addUsers(users){
-    for(let x of users){
-        addUser(x);
+function getUsers(organization){
+    for(let x of organization){
+        getUser(x);
     }
+    return users
 }
+
 
 
 
@@ -113,8 +102,6 @@ function checkTime(users,times){//a = 1-2 b = 2-3
 
 
 exports.addUser = addUser;
-exports.addUsers = addUsers;
-exports.createHost = createHost; 
 exports.checkTime = checkTime;
 exports.getUser = getUser;
-exports.getUserByorganization = getUserByorganization;
+exports.getUsers = getUsers;
