@@ -21,9 +21,10 @@ function getUser(organization){
     SELECT * FROM User WHERE organization = @organization
     `;
     const getUserStmt = db.prepare(sql);
-    const record = getUserStmt.get();
+    const record = getUserStmt.get({
+        "organization": organization
+    });
     return record;
-    // how to get the data from same as organization?
 }
 
 function getUsers(organization){
