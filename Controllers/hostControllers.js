@@ -9,7 +9,7 @@ async function createNewHost(req,res){
     if(hostModel.addHost(obj)){
         res.redirect('/login');
     }else{
-        res.sendStatus(409);
+        res.redirect('/hostRegester');
     }
 
     return await obj;
@@ -18,19 +18,17 @@ async function createNewHost(req,res){
 async function login (req,res){
     host = req.body;
     if(!host){
-        res.sendStatus(400);
+        res.redirect('/login');
     }
     const check = await argon2.verify(host);
     if(check === true){
         if(req.session.regenerate()){
             res.redirect('/userRegister');
-
-
         }else{
-            res.sendStatus(200);
+            res.redirect('/login');
         }
     }else{
-        res.sendStatus(400);
+        res.redirect('/login');
     }
 }
 
