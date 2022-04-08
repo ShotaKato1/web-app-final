@@ -1,5 +1,5 @@
 "use strict";
-const { sendStatus } = require("express/lib/response");
+const { sendStatus, send } = require("express/lib/response");
 
 
 async function createNewHost(req,res){
@@ -7,9 +7,9 @@ async function createNewHost(req,res){
     
 
     if(hostModel.addHost(obj)){
-        res.sendStatus(201)
+        res.redirect('/login');
     }else{
-        res.sendStatus(409)
+        res.sendStatus(409);
     }
 
     return await obj;
@@ -23,7 +23,9 @@ async function login (req,res){
     const check = await argon2.verify(host);
     if(check === true){
         if(req.session.regenerate()){
-            res.sendStatus(500);
+            res.redirect('/userRegister');
+
+
         }else{
             res.sendStatus(200);
         }
