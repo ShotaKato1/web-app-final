@@ -3,7 +3,7 @@ const { sendStatus, send } = require("express/lib/response");
 
 
 async function createNewHost(req,res){
-    const obj = req.body; // how to know this?
+    const obj = req.body; 
     
 
     if(hostModel.addHost(obj)){

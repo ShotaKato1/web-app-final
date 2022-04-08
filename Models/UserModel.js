@@ -34,7 +34,20 @@ function getUsers(organization){
     return users
 }
 
-
+function checkTime(time){
+    const sql = `
+    INSERT INTO TIMES(1-2, 2-3, 3-4, 4-5, 5-6, 6-7, 7-8, 8-9, 9-10, 10-11, 11-12, 12-13,
+                    13-14, 14-15, 15-16, 16-17, 17-18, 19-20, 20-21, 21-22, 22-23, 23-24,
+                    24-1,)
+                VALUES(@1-2, @2-3, @3-4, @4-5, @5-6, @6-7, @7-8, @8-9, @9-10, @10-11, @11-12, @12-13,
+                    @13-14, @14-15, @15-16, @16-17, @17-18, @19-20, @20-21, @21-22, @22-23, @23-24,
+                    @24-1,)
+    `;
+    const checkTime = db.prepare(sql);
+    if(1-2 === 1){
+        
+    }
+}
 
 
 let pm12am1 = true,am1am2 = true,am2am3 = true,am3am4 = true,am4am5 = true,am5am6 = true;
