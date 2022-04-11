@@ -28,4 +28,5 @@ const HostController = require("./Controllers/hostControllers");
 app.post("/api/login", HostController.login);
 app.post("/api/host", HostController.createNewHost);
 
+
 module.exports = app;

@@ -16,6 +16,17 @@ function addUser(user){
     adduserStmt.run({user});
 }
 
+function addOrganizationUser(organization){
+    const sql = `
+    INSERT INTO Organization
+        (organization)
+    VALUES
+        (@organization)
+    `;
+    const addOrganizationUserStmt = db.prepare(sql);
+    addOrganizationUserStmt.run({organization});
+}
+
 function getUser(organization){
     const sql = `
     SELECT * FROM User WHERE organization = @organization
@@ -36,17 +47,19 @@ function getUsers(organization){
 
 function checkTime(time){
     const sql = `
-    INSERT INTO TIMES(1-2, 2-3, 3-4, 4-5, 5-6, 6-7, 7-8, 8-9, 9-10, 10-11, 11-12, 12-13,
-                    13-14, 14-15, 15-16, 16-17, 17-18, 19-20, 20-21, 21-22, 22-23, 23-24,
-                    24-1,)
-                VALUES(@1-2, @2-3, @3-4, @4-5, @5-6, @6-7, @7-8, @8-9, @9-10, @10-11, @11-12, @12-13,
-                    @13-14, @14-15, @15-16, @16-17, @17-18, @19-20, @20-21, @21-22, @22-23, @23-24,
-                    @24-1,)
+    UPDATE INTO UserTimes(amone_two, amtwo_three, amthree_four, amfour_five, amfive_six, amsix_seven, amseven_eight,
+                          ameight_nine, amnine_ten, amten_eleven, ameleven_twelve, amtwelve_pmone, pmone_two,
+                          pmtwo_three, pmthree_four, pmfour_five, pmfive_six, pmsix_seven, pmseven_eight,
+                          pmeight_nine, pmnine_ten, pmten_eleven, pmeleven_twelve, pmtwelve_amone,
+                          organizationid)
+                VALUES(@amone_two, @amtwo_three, @amthree_four, @amfour_five, @amfive_six, @amsix_seven, @amseven_eight,
+                       @ameight_nine, @amnine_ten, @amten_eleven, @ameleven_twelve, @amtwelve_pmone, @pmone_two,
+                       @pmtwo_three, @pmthree_four, @pmfour_five, @pmfive_six, @pmsix_seven, @pmseven_eight,
+                       @pmeight_nine, @pmnine_ten, @pmten_eleven, @pmeleven_twelve, @pmtwelve_amone,
+                       @organizationid)
     `;
     const checkTime = db.prepare(sql);
-    if(1-2 === 1){
-        
-    }
+    
 }
 
 
@@ -119,3 +132,4 @@ exports.addUser = addUser;
 exports.checkTime = checkTime;
 exports.getUser = getUser;
 exports.getUsers = getUsers;
+exports.addOrganizationUser = addOrganizationUser;

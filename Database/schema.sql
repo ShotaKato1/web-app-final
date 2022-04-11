@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS Host (
     hostName TEXT UNIQUE NOT NULL,
     hash TEXT UNIQUE NOT NULL, 
     organization TEXT UNIQUE NOT NULL,
+    organizationid TEXT PRIMARY KEY,
     email TEXT UNIQUE NOT NULL
     
 );
@@ -10,31 +11,40 @@ CREATE TABLE IF NOT EXISTS Host (
 CREATE TABLE IF NOT EXISTS User(
     userName TEXT UNIQUE NOT NULL,
     email TEXT UNIQUE NOT NULL,
-    organization TEXT UNIQUE NOT NULL
-)
+    organization TEXT UNIQUE NOT NULL,
+    organizationid TEXT PRIMARY KEY
+);
 
-CREATE TABLE IF NOT EXISTS Time(
-    1-2 Boolean DEFAULT 1,
-    2-3 Boolean DEFAULT 1,
-    3-4 Boolean DEFAULT 1,
-    4-5 Boolean DEFAULT 1,
-    5-6 Boolean DEFAULT 1,
-    6-7 Boolean DEFAULT 1,
-    7-8 Boolean DEFAULT 1,
-    8-9 Boolean DEFAULT 1,
-    9-10 Boolean DEFAULT 1,
-    10-11 Boolean DEFAULT 1,
-    11-12 Boolean DEFAULT 1,
-    12-13 Boolean DEFAULT 1,
-    13-14 Boolean DEFAULT 1,
-    14-15 Boolean DEFAULT 1,
-    15-16 Boolean DEFAULT 1,
-    16-17 Boolean DEFAULT 1,
-    17-18 Boolean DEFAULT 1,
-    19-20 Boolean DEFAULT 1,
-    20-21 Boolean DEFAULT 1,
-    21-22 Boolean DEFAULT 1,
-    22-23 Boolean DEFAULT 1,
-    23-24 Boolean DEFAULT 1,
-    24-1 Boolean DEFAULT 1,
-)
+
+CREATE TABLE IF NOT EXISTS UserTime(
+    amone_two Boolean DEFAULT 1,
+    amtwo_three Boolean DEFAULT 1,
+    amthree_four Boolean DEFAULT 1,
+    amfour_five Boolean DEFAULT 1,
+    amfive_six Boolean DEFAULT 1,
+    amsix_seven Boolean DEFAULT 1,
+    amseven_eight Boolean DEFAULT 1,
+    ameight_nine Boolean DEFAULT 1,
+    amnine_ten Boolean DEFAULT 1,
+    amten_eleven Boolean DEFAULT 1,
+    ameleven_twelve Boolean DEFAULT 1,
+    amtwelve_pmone Boolean DEFAULT 1,
+    pmone_two Boolean DEFAULT 1,
+    pmtwo_three Boolean DEFAULT 1,
+    pmthree_four Boolean DEFAULT 1,
+    pmfour_five Boolean DEFAULT 1,
+    pmfive_six Boolean DEFAULT 1,
+    pmsix_seven Boolean DEFAULT 1,
+    pmseven_eight Boolean DEFAULT 1,
+    pmeight_nine Boolean DEFAULT 1,
+    pmnine_ten Boolean DEFAULT 1,
+    pmten_eleven Boolean DEFAULT 1,
+    pmeleven_twelve Boolean DEFAULT 1,
+    pmtwelve_amone Boolean DEFAULT 1,
+    organizationid PRIMARY KEY
+);
+
+CREATE TABLE IF NOT EXISTS Organization(
+    organizationid PRIMARY KEY,
+    userName TEXT UNIQUE NOT NULL
+);

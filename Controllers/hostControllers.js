@@ -1,6 +1,7 @@
 "use strict";
 const { sendStatus, send } = require("express/lib/response");
 
+const hostModel = require("../Models/hostModel");
 
 async function createNewHost(req,res){
     const obj = req.body; 
