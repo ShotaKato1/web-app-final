@@ -4,7 +4,6 @@ const db = require("./db");
 const crypto = require("crypto"); 
 const argon2 = require('argon2');
 
-// need to make password hash function
 function addUser(user){
     const sql = `
     INSERT INTO User
@@ -14,7 +13,7 @@ function addUser(user){
     `;
     const adduserStmt = db.prepare(sql);
     adduserStmt.run({user});
-}
+} 
 
 function addOrganizationUser(organization){
     const sql = `
@@ -62,13 +61,12 @@ function checkTime(time){
     
 }
 
-
 let pm12am1 = true,am1am2 = true,am2am3 = true,am3am4 = true,am4am5 = true,am5am6 = true;
 let am6am7 = true,am7am8 = true,am8am9 = true,am9am10 = true,am10am11 = true,am11am12 = true;
 let am12pm1 = true,pm1pm2 = true,pm2pm3 = true,pm3pm4 = true,pm4pm5 = true,pm5pm6 = true;
 let pm6pm7 = true,pm7pm8 = true,pm8pm9 = true,pm9pm10 = true,pm10pm11 = true,pm11pm12 = true;
 
-function checkTime(users,times){//a = 1-2 b = 2-3
+function checkTimes(users,times){//a = 1-2 b = 2-3
     for(let x of users){
         for(let y of times){
             if(y === a){
@@ -126,10 +124,11 @@ function checkTime(users,times){//a = 1-2 b = 2-3
     }
 }
 
-
-
-exports.addUser = addUser;
-exports.checkTime = checkTime;
-exports.getUser = getUser;
-exports.getUsers = getUsers;
-exports.addOrganizationUser = addOrganizationUser;
+module.exports = {
+    addUser,
+    addOrganizationUser,
+    getUser,
+    getUsers,
+    checkTime,
+    checkTimes, 
+}
