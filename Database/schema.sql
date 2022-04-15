@@ -1,20 +1,21 @@
 CREATE TABLE IF NOT EXISTS Host (
-    hostid TEXT PRIMARY KEY,
-    hostName TEXT UNIQUE NOT NULL,
+    hostID TEXT PRIMARY KEY,
+    hostname TEXT UNIQUE NOT NULL,
     hash TEXT UNIQUE NOT NULL, 
     organization TEXT UNIQUE NOT NULL,
-    organizationid TEXT PRIMARY KEY,
-    email TEXT UNIQUE NOT NULL
-    
+    ID TEXT PRIMARY KEY,
+    email TEXT UNIQUE NOT NULL,
+    FOREIGN KEY (ID) REFERENCES Organization(organizationID)
 );
 
 CREATE TABLE IF NOT EXISTS User(
-    userName TEXT UNIQUE NOT NULL,
+    userID TEXT PRIMARY KEY,
+    username TEXT UNIQUE NOT NULL,
     email TEXT UNIQUE NOT NULL,
     organization TEXT UNIQUE NOT NULL,
-    organizationid TEXT PRIMARY KEY
+    id TEXT PRIMARY KEY,
+    FOREIGN KEY (id) REFERENCES Organization(organizationID)
 );
-
 
 CREATE TABLE IF NOT EXISTS UserTime(
     amone_two Boolean DEFAULT 1,
@@ -45,6 +46,7 @@ CREATE TABLE IF NOT EXISTS UserTime(
 );
 
 CREATE TABLE IF NOT EXISTS Organization(
-    organizationid PRIMARY KEY,
-    userName TEXT UNIQUE NOT NULL
+    organizationid TEXT PRIMARY KEY,
+    author TEXT UNIQUE NOT NULL,
+    FOREIGN KEY (auhtor) REFERENCES User(username)
 );

@@ -26,6 +26,10 @@ There are two databases in this project, the user database and the host database
 ### The `Time` table
   time boolean default 1 
  
+### The `Organization` table
+   organizationid text Primary key
+   author text unique - not null 
+ 
 The tables are in schema.sql. 
 
 ## Step 2: Models 
@@ -41,13 +45,13 @@ In Validators/ called hostValidation.js and userValidation.js. Implement a valid
 ## Step 5: Session Management 
 
 
+
 ├── Controllers
 │   ├── hostController.js
 │   └── userController.js
 ├── Database
-│   ├── db.js
+│   ├── initdb.js
 │   ├── schema.sql
-│   └── wordle.db
 ├── Models
 │   ├── db.js
 │   ├── hostModel.js
@@ -55,16 +59,16 @@ In Validators/ called hostValidation.js and userValidation.js. Implement a valid
 ├── Validators
 │   ├── hostValidation.js
 │   └── userValidation.js
-├── public
+├── html
 │   ├── login.html
 │   └── userRegister.html
 │   └── hostRegister.html
 │   └── timeAvailable.html
+│   └── index.html
 ├── app.js
 ├── package-lock.json
 ├── package.json
 └── server.js
-
 
 
 
