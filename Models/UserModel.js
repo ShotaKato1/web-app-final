@@ -44,21 +44,113 @@ function getUsers(organization){
     return users
 }
 
-function checkTime(time){
+function checkTime(organization){
     const sql = `
-    UPDATE INTO UserTimes(amone_two, amtwo_three, amthree_four, amfour_five, amfive_six, amsix_seven, amseven_eight,
-                          ameight_nine, amnine_ten, amten_eleven, ameleven_twelve, amtwelve_pmone, pmone_two,
-                          pmtwo_three, pmthree_four, pmfour_five, pmfive_six, pmsix_seven, pmseven_eight,
-                          pmeight_nine, pmnine_ten, pmten_eleven, pmeleven_twelve, pmtwelve_amone,
-                          organization)
-                VALUES(@amone_two, @amtwo_three, @amthree_four, @amfour_five, @amfive_six, @amsix_seven, @amseven_eight,
-                       @ameight_nine, @amnine_ten, @amten_eleven, @ameleven_twelve, @amtwelve_pmone, @pmone_two,
-                       @pmtwo_three, @pmthree_four, @pmfour_five, @pmfive_six, @pmsix_seven, @pmseven_eight,
-                       @pmeight_nine, @pmnine_ten, @pmten_eleven, @pmeleven_twelve, @pmtwelve_amone,
-                       @organization)
+    UPDATE UserTimes
+    SET
+        amone_two = CASE WHEN @amone_two = '1' 
+        THEN amone_two = @amone_two 
+        ELSE amone_two = amone_two END,
+
+        amtwo_three = CASE WHEN @amtwo_three = '1' 
+        THEN amtwo_three = @amtwo_three 
+        ELSE amtwo_three = amtwo_three END,
+
+        amthree_four = CASE WHEN @amthree_four = '1'
+         THEN amthree_four = @amthree_four 
+        ELSE amthree_four = amthree_four END,
+
+        amfour_five = CASE WHEN @amfour_five = '1' 
+        THEN amfour_five = @amfour_five 
+        ELSE amfour_five = amfour_five END,
+
+        amfive_six = CASE WHEN @amfive_six = '1' 
+        THEN amfive_six = @amfive_six 
+        ELSE amfive_six = amfive_six END,
+
+        amsix_seven = CASE WHEN @amsix_seven = '1' 
+        THEN amsix_seven = @amsix_seven 
+        ELSE amsix_seven = amsix_seven END,
+
+        amseven_eight = CASE WHEN @amseven_eight = '1' 
+        THEN amseven_eight = @amseven_eight 
+        ELSE amseven_eight = amseven_eight END,
+
+        ameight_nine = CASE WHEN @ameight_nine = '1' 
+        THEN ameight_nine = @ameight_nine 
+        ELSE ameight_nine = ameight_nine END,
+
+        amnine_ten = CASE WHEN @amnine_ten = '1' 
+        THEN amnine_ten = @amnine_ten 
+        ELSE amnine_ten = amnine_ten END,
+
+        amten_eleven = CASE WHEN @amten_eleven = '1' 
+        THEN amten_eleven = @amten_eleven 
+        ELSE amten_eleven = amten_eleven END,
+
+        ameleven_twelve = CASE WHEN @ameleven_twelve = '1' 
+        THEN ameleven_twelve = @ameleven_twelve 
+        ELSE ameleven_twelve = ameleven_twelve END,
+        
+        amtwelve_pmone = CASE WHEN @amtwelve_pmone = '1' 
+        THEN amtwelve_pmone = @amtwelve_pmone 
+        ELSE amtwelve_pmone = amtwelve_pmone END,
+
+        pmone_two = CASE WHEN @pmone_two = '1' 
+        THEN pmone_two = @pmone_two 
+        ELSE pmone_two = pmone_two END,
+
+        pmtwo_three = CASE WHEN @pmtwo_three = '1' 
+        THEN pmtwo_three = @pmtwo_three 
+        ELSE pmtwo_three = pmtwo_three END,
+
+        pmthree_four = CASE WHEN @pmthree_four = '1' 
+        THEN pmthree_four = @pmthree_four 
+        ELSE pmthree_four = pmthree_four END,
+
+        pmfour_five = CASE WHEN @pmfour_five = '1' 
+        THEN pmfour_five = @pmfour_five 
+        ELSE pmfour_five = pmfour_five END,
+
+        pmfive_six = CASE WHEN @pmfive_six = '1' 
+        THEN pmfive_six = @pmfive_six 
+        ELSE pmfive_six = pmfive_six END,
+
+        pmsix_seven = CASE WHEN @pmsix_seven = '1' 
+        THEN pmsix_seven = @pmsix_seven 
+        ELSE pmsix_seven = pmsix_seven END,
+
+        pmseven_eight = CASE WHEN @pmseven_eight = '1' 
+        THEN pmseven_eight = @pmseven_eight 
+        ELSE pmseven_eight = pmseven_eight END,
+
+        pmeight_nine = CASE WHEN @pmeight_nine = '1' 
+        THEN pmeight_nine = @pmeight_nine 
+        ELSE pmeight_nine = pmeight_nine END,
+
+        pmnine_ten = CASE WHEN @pmnine_ten = '1' 
+        THEN pmnine_ten = @pmnine_ten 
+        ELSE pmnine_ten = pmnine_ten END,
+
+        pmten_eleven = CASE WHEN @pmten_eleven = '1' 
+        THEN pmten_eleven = @pmten_eleven 
+        ELSE pmten_eleven = pmten_eleven END,
+
+        pmeleven_twelve = CASE WHEN @pmeleven_twelve = '1' 
+        THEN pmeleven_twelve = @pmeleven_twelve 
+        ELSE pmeleven_twelve = pmeleven_twelve END,
+
+        pmtwelve_amone = CASE WHEN @pmtwelve_amone = '1' 
+        THEN pmtwelve_amone = @pmtwelve_amone 
+        ELSE pmtwelve_amone = pmtwelve_amone END,
+
+    WHERE
+            organization = 'organization'
     `;
     const checkTime = db.prepare(sql);
-    // how to compare the usertime value??
+    checkTime.run({
+        "organization": organization
+    })
 }
 
 let pm12am1 = true,am1am2 = true,am2am3 = true,am3am4 = true,am4am5 = true,am5am6 = true;
