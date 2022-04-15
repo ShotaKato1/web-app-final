@@ -6,7 +6,6 @@ const {makeBodyValidator} = require("./makeValidation");
 
 const userSchema = Joi.object({
     "username": Joi.string()
-        .min(5)
         .token()
         .lowercase()
         .required()
