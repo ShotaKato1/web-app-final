@@ -51,15 +51,15 @@ function checkTime(time){
                           ameight_nine, amnine_ten, amten_eleven, ameleven_twelve, amtwelve_pmone, pmone_two,
                           pmtwo_three, pmthree_four, pmfour_five, pmfive_six, pmsix_seven, pmseven_eight,
                           pmeight_nine, pmnine_ten, pmten_eleven, pmeleven_twelve, pmtwelve_amone,
-                          organizationid)
+                          organization)
                 VALUES(@amone_two, @amtwo_three, @amthree_four, @amfour_five, @amfive_six, @amsix_seven, @amseven_eight,
                        @ameight_nine, @amnine_ten, @amten_eleven, @ameleven_twelve, @amtwelve_pmone, @pmone_two,
                        @pmtwo_three, @pmthree_four, @pmfour_five, @pmfive_six, @pmsix_seven, @pmseven_eight,
                        @pmeight_nine, @pmnine_ten, @pmten_eleven, @pmeleven_twelve, @pmtwelve_amone,
-                       @organizationid)
+                       @organization)
     `;
     const checkTime = db.prepare(sql);
-    
+    // how to compare the usertime value??
 }
 
 
