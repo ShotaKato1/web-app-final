@@ -27,8 +27,8 @@ function getInputs(){
     const pmtewlve_amone = document.getElementById("24-1").checked;
 
     return{
-        one_two,
-        two_three,
+        amone_two,
+        amtwo_three,
         amthree_four,
         amfour_five,
         amfive_six,
