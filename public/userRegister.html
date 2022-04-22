@@ -4,53 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register for Scheduling Tool register user</title>
+    <title>Register for Scheduling Tool</title>
 </head>
 <body>
-    <form action="/api/login/userRegister" method="post">
+    <form action="/api/registerUser" method="post">
         <div>
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username">
-
-            <label for="email">Email address</label>
-            <input type="text" name="email" id="email">
+            <link href="/media/examples/link-element-example.css" rel="stylesheet">
+            <style>
+            body{
+                background-color: #ffe7e8;
+                border: 5px solid #e66465;
+                margin: 25px; 
+                line-height: 1.5;
+                text-align: center;
+            }
+            p{
+                color: rgb(7, 1, 1);
+                font-family: Georgia;
+                font-size: 130%;
+            }
+            p1{
+                border: 2px solid rgb(54, 18, 154);
+            }
+            </style>
         </div>
-
         <div>
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username">
-
-            <label for="email">Email address</label>
-            <input type="text" name="email" id="email">
+            <a href= "/index.html">
+                <button> Back </button></a>
         </div>
-
         <div>
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username">
-
-            <label for="email">Email address</label>
-            <input type="text" name="email" id="email">
+            <label for="hostname"><p>UserName:</p></label>
+           <p1><input type="text" name="hostname" id="host\name"></p1>
         </div>
-        
         <div>
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username">
-
-            <label for="email">Email address</label>
-            <input type="text" name="email" id="email">
+            <label for="email"><p>Email address:</p></label>
+            <p1><input type="text" name="email" id="email"></p1>
         </div>
-
         <div>
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username">
-
-            <label for="email">Email address</label>
-            <input type="text" name="email" id="email">
+            <label for="organization"><p>Organization name:</p></label>
+            <p1><input type="text" name="organization" id="organization"></p1>
         </div>
-
-        <a href= "timeAvailable.html">
-            <button> SUBMIT </button></a>
-
+        <div>
+            <label for="password"><p>Password:</p></label>
+           <p1> <input type="password" name="password" id="password"></p1>
+        </div>
+        <div>
+            <label for="confirmPassword"><p>Confirm Password:</p></label>
+            <p1><input type="password" name="confirmPassword" id="confirmPassword"></p1>
+        </div>
+        <div>
+            <a href= "/userlogin.html">
+                <button> SUBMIT </button></a>
+        </div>
     </form>
 </body>
-</html>
+</html> 
