@@ -24,7 +24,7 @@ async function login (req,res){
     const check = await argon2.verify(host);
     if(check === true){
         if(req.session.regenerate()){
-            res.redirect('/userRegister');
+            res.redirect('/hostRegister');
         }else{
             res.redirect('/login');
         }
