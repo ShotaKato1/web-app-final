@@ -5,111 +5,176 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To check the time availablity</title>
-    <script src="/js/updateSchedule.js"></script>
 </head>
 <body>
     <form action="/api/time" method="post">
-
+        <a href= "login.html">
+            <button> Back </button></a>
         <div>
             <link href="/media/examples/link-element-example.css" rel="stylesheet">
-            <p style="color: green">Select <code>time</code> you are not available for the meeting.</p>
+            <style>
+            body{
+                background-color: #ffe7e8;
+                border: 5px solid #e66465;
+                margin: 25px; 
+                line-height: 1.5;
+                text-align: center;
+            }
+            p{
+                color: rgb(7, 1, 1);
+                font-family: Georgia;
+                font-size: 130%;
+            }
+            </style>
         </div>
-
+        
         <div>
-            <label for="1-2">1 am to 2 am</label>
-            <input type="checkbox" name="1-2" id="1-2">
-        </div>
-        <div>
-            <label for="2-3">2 am to 3 am</label>
-            <input type="checkbox" name="2-3" id="2-3">
-        </div>
-        <div>
-            <label for="3-4">3 am to 4 am</label>
-            <input type="checkbox" name="3-4" id="3-4">
-        </div>
-        <div>
-            <label for="4-5">4 am to 5 am</label>
-            <input type="checkbox" name="4-5" id="4-5">
-        </div>
-        <div>
-            <label for="5-6">5 am to 6 am</label>
-            <input type="checkbox" name="5-6" id="5-6">
+            <link href="/media/examples/link-element-example.css" rel="stylesheet">
+            <p style="color: green">Select the time you are not available for the meeting.</p>
         </div>
         <div>
-            <label for="6-7">6 am to 7 am</label>
-            <input type="checkbox" name="6-7" id="6-7">
+            <p>
+                <label for="1-2">01 AM - 02 AM </label>
+                <input type="checkbox" name="1-2" id="1-2">
+            </p>
+        </div>   
+        <div>
+            <p>
+                <label for="2-3">02 AM - 03 AM</label>
+                <input type="checkbox" name="2-3" id="2-3">
+            </p>
         </div>
         <div>
-            <label for="7-8">7 am to 8 am</label>
-            <input type="checkbox" name="7-8" id="7-8">
+            <p>
+                <label for="3-4">03 AM - 04 AM</label>
+                <input type="checkbox" name="3-4" id="3-4">
+            </p>
         </div>
         <div>
-            <label for="8-9">8 am to 9 am</label>
-            <input type="checkbox" name="8-9" id="8-9">
+            <p> 
+                <label for="4-5">04 AM - 05 AM</label>
+                <input type="checkbox" name="4-5" id="4-5">
+            </p>
         </div>
         <div>
-            <label for="9-10">9 am to 10 am</label>
-            <input type="checkbox" name="9-10" id="9-10">
+            <p>
+                <label for="5-6">05 AM - 06 AM</label>
+                <input type="checkbox" name="5-6" id="5-6">
+            </p>
         </div>
         <div>
-            <label for="10-11">10 am to 11 am</label>
-            <input type="checkbox" name="10-11" id="10-11">
+            <p>
+                <label for="6-7">06 AM - 07 AM</label>
+                <input type="checkbox" name="6-7" id="6-7">
+            </p>
         </div>
         <div>
-            <label for="11-12">11 am to 12 am</label>
-            <input type="checkbox" name="11-12" id="11-12">
+            <p>
+                <label for="7-8">07 AM - 08 AM</label>
+                <input type="checkbox" name="7-8" id="7-8">
+            </p>
         </div>
         <div>
-            <label for="12-13">12 am to 1 pm</label>
-            <input type="checkbox" name="12-13" id="12-13">
+            <p>
+                <label for="8-9">08 AM - 09 AM</label>
+                <input type="checkbox" name="8-9" id="8-9">
+            </p>
         </div>
         <div>
-            <label for="13-14">1 pm to 2 pm</label>
-            <input type="checkbox" name="13-14" id="13-14">
+            <p>
+                <label for="9-10">09 AM - 10 AM</label>
+                <input type="checkbox" name="9-10" id="9-10">
+            </p>
         </div>
         <div>
-            <label for="14-15">2 pm to 3 pm</label>
-            <input type="checkbox" name="14-15" id="14-15">
+            <p>
+                <label for="10-11">10 AM - 11 AM</label>
+                <input type="checkbox" name="10-11" id="10-11">
+            </p>
         </div>
         <div>
-            <label for="15-16">3 pm to 4 pm</label>
-            <input type="checkbox" name="15-16" id="15-16">
+            <p>
+                <label for="11-12">11 AM - 12 AM</label>
+                <input type="checkbox" name="11-12" id="11-12">
+            </p>
         </div>
         <div>
-            <label for="16-17">4 pm to 5 pm</label>
-            <input type="checkbox" name="16-17" id="16-17">
+            <p>
+                <label for="12-13">12 AM - 01 PM</label>
+                <input type="checkbox" name="12-13" id="12-13">
+            </p>
         </div>
         <div>
-            <label for="17-18">5 pm to 6 pm</label>
-            <input type="checkbox" name="17-18" id="17-18">
+            <p>
+                <label for="13-14">01 AM - 02 PM</label>
+                <input type="checkbox" name="13-14" id="13-14">
+            </p>
         </div>
         <div>
-            <label for="18-19">6 pm to 7 pm</label>
-            <input type="checkbox" name="18-19" id="18-19">
+            <p>
+                <label for="14-15">02 PM - 03 PM</label>
+                <input type="checkbox" name="14-15" id="14-15">
+            </p>
         </div>
         <div>
-            <label for="19-20">7 pm to 8 pm</label>
-            <input type="checkbox" name="19-20" id="19-20">
+            <p>
+                <label for="15-16">03 PM - 04 PM</label>
+                <input type="checkbox" name="15-16" id="15-16">
+            </p>
         </div>
         <div>
-            <label for="20-21">8 pm to 9 pm</label>
-            <input type="checkbox" name="20-21" id="20-21">
+            <p>
+                <label for="16-17">04 AM - 05 AM</label>
+                <input type="checkbox" name="16-17" id="16-17">
+            </p>
         </div>
         <div>
-            <label for="21-22">9 pm to 10 pm</label>
-            <input type="checkbox" name="21-22" id="21-22">
+            <p>
+                <label for="17-18">05 PM - 06 PM</label>
+                <input type="checkbox" name="17-18" id="17-18">
+            </p>
         </div>
         <div>
-            <label for="22-23">10 pm to 11 pm</label>
-            <input type="checkbox" name="22-23" id="22-23">
+            <p>
+                <label for="18-19">06 PM - 07 PM</label>
+                <input type="checkbox" name="18-19" id="18-19">
+            </p>       
         </div>
         <div>
-            <label for="23-24">11 pm to 12 pm</label>
-            <input type="checkbox" name="23-24" id="23-24">
+            <p>
+                <label for="19-20">07 PM - 08 PM</label>
+                <input type="checkbox" name="19-20" id="19-20">
+            </p>
         </div>
         <div>
-            <label for="24-1">12 pm to 1 am</label>
-            <input type="checkbox" name="24-1" id="24-1">
+            <p>
+                <label for="20-21">08 PM - 09 PM</label>
+                <input type="checkbox" name="20-21" id="20-21">
+            </p>
+        </div>
+        <div>
+            <p>
+                <label for="21-22">09 PM - 10 PM</label>
+                <input type="checkbox" name="21-22" id="21-22">
+            </p>
+        </div>
+        <div>
+            <p>
+                <label for="22-23">10 PM - 11 PM</label>
+                <input type="checkbox" name="22-23" id="22-23">
+            </p>
+        </div>
+        <div>
+            <p>
+                <label for="23-24">11 PM - 12 PM</label>
+                <input type="checkbox" name="23-24" id="23-24">
+            </p>
+        </div>
+        <div>
+            <p>
+                <label for="24-1">12 PM - 1 AM</label>
+                <input type="checkbox" name="24-1" id="24-1">
+            </p>
         </div>
         <button>Submit</button>
     </form>
