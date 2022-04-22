@@ -132,11 +132,21 @@ function checkTime(organization){
     })
 }
 
+function getInputs(){
+    const one_two = document.getElementById("1-2").checked;
+    const two_three = document.getElementById("2-3").checked;
+    return{
+        one_two,
+        two_three,
+    }
+}
+
 module.exports = {
     addUser,
     addOrganizationUser,
     getUser,
     getUsers,
     checkTime,
+    getInputs,
 }
 
