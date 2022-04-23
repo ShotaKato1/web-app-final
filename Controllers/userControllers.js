@@ -9,38 +9,49 @@ async function userTimeAvailable(req, res){
     }else{
         res.redirect('/timeAvailable');
     }
-
     return await obj;
 }
 
 async function userlogin (req,res){
-    host = req.body;
-    if(!host){
-        res.redirect('/login');
-    }
-    const check = await argon2.verify(host);
-    if(check === true){
-        if(req.session.regenerate()){
-            res.redirect('/userRegister');
-        }else{
-            res.redirect('/login');
-        }
+    const {username , password} = req.body; ; 
+  if(!host){
+    return res.redirect('/userlogin');
+  }
+  const check1 = await argon2.verify(user.hash, password); 
+
+  if(check1 === true){
+    if(req.session.regenerate()){
+        res.redirect('/userRegister');
     }else{
-        res.redirect('/login');
+        res.redirect('/userlogin');
+      }
+    }else{
+    res.redirect('/userlogin');
     }
+  req.session.regenerate( (err) => {
+    if(err){
+        console.error(err);
+        return res.sendStatus(500);
+      }
+    req.session.isLoggedIn = true; 
+    req.session.user = {
+      "username": user.username,
+      "userID" : user.userID,
+    }; 
+    return res.sendStatus(200); 
+    }); 
+
 }
 
 async function createNewuser(req,res){
-    const obj = req.body; 
-    
+    const {username , password} = req.body; 
+  const check = await userModel.addUser(username, password); 
 
-    if(hostModel.addHost(obj)){
-        res.redirect('/userlogin');
-    }else{
-        res.redirect('/userRegester');
-    }
-
-    return await obj;
+  if(!check){
+      return res.redirect('/userlogin');
+  }else{
+      return res.redirect('/userRegister');
+  }
 }
 
 module.exports = {
