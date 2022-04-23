@@ -42,36 +42,6 @@ In Controllers/ called hostController.js and userController.js. These files will
 
 In Validators/ called hostValidation.js and userValidation.js. Implement a validation middleware that will validate a guess in the request body.
 
-## Step 5: Session Management 
-
-
-
-├── Controllers
-│   ├── hostController.js
-│   └── userController.js
-├── Database
-│   ├── initdb.js
-│   ├── schema.sql
-├── Models
-│   ├── db.js
-│   ├── hostModel.js
-│   └── userModel.js
-├── Validators
-│   ├── hostValidation.js
-│   └── userValidation.js
-├── html
-│   ├── login.html
-│   └── userRegister.html
-│   └── hostRegister.html
-│   └── timeAvailable.html
-│   └── index.html
-├── app.js
-├── package-lock.json
-├── package.json
-└── server.js
-
-
-
 
 
 
