@@ -5,7 +5,7 @@ const { sendStatus, send } = require("express/lib/response");
 const hostModel = require("../Models/hostModel");
 const nodemailer = require("nodemailer");
 
-function createNewHost(req,res){
+async function createNewHost(req,res){
   const {username , password} = req.body; 
   const check = await hostModel.addHost(username, password); 
 
@@ -56,7 +56,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-function sendEmail (username, subject, text, html) {
+async function sendEmail (username, subject, text, html) {
   const message = {
     from: process.env.EMAIL_ADDRESS,
     to: username,
