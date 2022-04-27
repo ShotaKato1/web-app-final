@@ -21,7 +21,9 @@
   "homepage": "https://github.com/ShotaKato1/web-app-final#readme",
   "dependencies": {
     "argon2": "^0.28.5",
+    "connect-redis": "^6.1.3",
     "dotenv": "^16.0.0",
+    "express": "^4.18.0",
     "joi": "^17.6.0",
     "nodemailer": "^6.7.3"
   }
