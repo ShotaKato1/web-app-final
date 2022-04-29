@@ -10,28 +10,17 @@
     <form action="/api/logout" method="post">
         
         <div>
-            <link href="/media/examples/link-element-example.css" rel="stylesheet">
-            <style>
-            body{
-                background-color: #ffe7e8;
-                border: 5px solid #e66465;
-                margin: 25px; 
-                line-height: 5;
-                text-align: left;
-            }
-            h1{
-                color: rgb(7, 1, 1);
-                font-family: Georgia;
-                font-size: 150%;
-                text-align: center;
-            }
-            </style>
-        </div>
-        <div>
             <a href= "/index">
                 <button> Homepage </button></a>
         </div>
         <h1>Thank you for joining Scheduling Meetings!!!</h1>
+        <form action="/api/timeAvailable" method="get">
+            <input type="checkbox" name="01-02" value="01-02">
+            <label for="01-02"> I can do for 1-2</label><br>
+            <input type="checkbox" name="02-03" value="02-03">
+            <label for="02-03"> I can do for 2-3</label><br>
+            <input type="submit" value="Submit">
+          </form>
     </form>
 </body>
 </html>
