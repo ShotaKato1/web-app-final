@@ -6,7 +6,7 @@ const hostModel = require("../Models/hostModel");
 const nodemailer = require("nodemailer");
 
 async function createNewHost(req,res){
-  const {host} = req.body; 
+  const host = req.body; 
   const check = await hostModel.addHost(host); 
 
   if(!check){
@@ -17,7 +17,7 @@ async function createNewHost(req,res){
 }
 
 async function login (req,res){
-  const {username , password} = req.body; ; 
+  const host = req.body; ; 
   if(!host){
     return res.redirect('/login');
   }
