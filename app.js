@@ -1,5 +1,7 @@
 "use strict";
-require("dotenv").config();
+
+const dotenv = require("dotenv").config()
+//require("dotenv").config();
 
 const express = require("express");
 const app = express();
@@ -36,8 +38,19 @@ const UserController = require("./Controllers/userControllers");
 const hostValidation = require("./Validators/hostValidation");
 const userValidation = require("./Validators/userValidation");
 
-app.post("/api/login", HostController.login);
-app.post("/api/host", HostController.createNewHost);
+app.use(express.static("public", {index: "index.html", extensions: ["html"]}));
 
+// The maximum request body size is 100 kilobytes; however, my word list was
+// ~150kb. So I just doubled the request body size limit
+app.use(express.json({limit: '200kb'}));
+app.use(express.urlencoded({ extended: false }));
+
+//Endpoints 
+app.post("/api/login", hostValidation.hostValidation, HostController.login);
+app.post("/api/host", hostValidation.hostValidation, HostController.createNewHost);
+
+app.post("/api/userlogin", userValidation.userValidation, UserController.userlogin);
+app.post("/api/user", userValidation.userValidation, UserController.createNewuser);
+app.post("/api/time", userValidation.userValidation, UserController.userTimeAvailable);
 
 module.exports = app;
