@@ -1,36 +1,32 @@
 "use strict";
-
-const argon2 = require("argon2"); 
 const { sendStatus, send } = require("express/lib/response");
-const hostModel = require("../Models/hostModel");
-const nodemailer = require("nodemailer");
 
-async function createNewHost(req,res){
-  const {username , password} = req.body; 
-  const check = await hostModel.addHost(username, password); 
+async function userTimeAvailable(req, res){
+    const obj = req.body;
 
-  if(!check){
-      return res.redirect('/hostlogin');
-  }else{
-      return res.redirect('/hostRegister');
-  }
+    if(UserModel.checktime(obj)){
+        res.send("You complete the working!");
+    }else{
+        res.redirect('/timeAvailable');
+    }
+    return await obj;
 }
 
-async function login (req,res){
-  const {username , password} = req.body; ; 
+async function userlogin (req,res){
+    const {username , password} = req.body; ; 
   if(!host){
-    return res.redirect('/hostlogin');
+    return res.redirect('/userlogin');
   }
-  const check1 = await argon2.verify(host.hash, password); 
+  const check1 = await argon2.verify(user.hash, password); 
 
   if(check1 === true){
     if(req.session.regenerate()){
-        res.redirect('/hostRegister');
+        res.redirect('/userRegister');
     }else{
-        res.redirect('/hostlogin');
+        res.redirect('/userlogin');
       }
     }else{
-    res.redirect('/hostlogin');
+    res.redirect('/userlogin');
     }
   req.session.regenerate( (err) => {
     if(err){
@@ -38,60 +34,28 @@ async function login (req,res){
         return res.sendStatus(500);
       }
     req.session.isLoggedIn = true; 
-    req.session.host = {
-      "hostname": host.hostname,
-      "hostID" : host.hostID,
+    req.session.user = {
+      "username": user.username,
+      "userID" : user.userID,
     }; 
     return res.sendStatus(200); 
     }); 
 
 }
 
-const transporter = nodemailer.createTransport({
-  service: "Gmail",
-  auth: {
-    user: process.env.EMAIL_ADDRESS,
-    pass: process.env.EMAIL_PASSWORD
-  }
-});
+async function createNewuser(req,res){
+    const {username , password} = req.body; 
+  const check = await userModel.addUser(username, password); 
 
-async function sendEmail (username, subject, text, html) {
-  const message = {
-    from: process.env.EMAIL_ADDRESS,
-    to: username,
-    subject: subject,
-    text: text,
-    html: html
-  };
-  try {
-    await transporter.sendMail(message);
-    return true;
-  } catch (err) {
-    console.error(err);
-    return false;
-  }
- }
-
-const text = (
-  "Thank you joing scheduling meetings!\n\n"
-);
- 
-const html = (
-  "<h1 style=\"margin-bottom: 1rem;\">Thank you for joining our scheduling meetings!</h1>" 
-);
- 
-function sendSchedulingWelcome (to) {
-  const emailSent = sendEmail(to, "Welcome to Our Scheduling Meetings", text, html);
-  if (emailSent) {
-    res.redirect('/timeAvailable');
-  } else {
-    res.redirect('/login');
+  if(!check){
+      return res.redirect('/userlogin');
+  }else{
+      return res.redirect('/userRegister');
   }
 }
 
 module.exports = {
-    login,
-    createNewHost,
-    sendEmail,
-    sendSchedulingWelcome ,
-};
+    userTimeAvailable,
+    userlogin,
+    createNewuser,
+}
