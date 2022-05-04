@@ -132,7 +132,6 @@ function checkTime(organization){
     })
 }
 
-
 module.exports = {
     addUser,
     addOrganizationUser,
@@ -140,4 +139,3 @@ module.exports = {
     getUsers,
     checkTime,
 }
-
