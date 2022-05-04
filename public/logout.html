@@ -7,14 +7,13 @@
     <title>Log out of Schedule website</title>
 </head>
 <body>
-    <form action="/api/timeAvailable" method="get">
+    <form action="/api/logout" method="get">
         <script src="updateSchedule.js">
 </script>
         <div>
-            <a href= "/index">
-                <button> Back </button></a>
         <h1>Thank you for joining Scheduling Meetings!!!</h1>
-        <input type = "button" onclick= "getInputs()" value = "Display">
+        <input type = "button" onclick= "getInputs()" id = "Display" >
+        <div id="output"></div>
         </div>
     </form>
 </body>
