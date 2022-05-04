@@ -7,28 +7,29 @@
     <title>Log in to Schedule website</title>
 </head>
 <body>
-    <form action="/api/login" method="post">
-        <a href= "index.html">
-            <button> Back </button></a>
+    <form action="/api/hostlogin" method="get">
         <div>
             <link href="/media/examples/link-element-example.css" rel="stylesheet">
             <style>
-            body{
-                background-color: #ffe7e8;
-                border: 5px solid #e66465;
+        body{
+                margin: 0;
+	            padding: 0;
+                min-height: 100vh;
+                background-color: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);;
+                border: 5px solid #180778;
                 margin: 25px; 
-                line-height: 3;
+                line-height: 4;
                 text-align: center;
-            }
-            p{
+        }
+        p{
                 color: rgb(7, 1, 1);
                 font-family: Georgia;
                 font-size: 110%;
-            }
-            p1{
+        }
+        p1{
                 border: 2px solid rgb(54, 18, 154);
-            }
-            </style>
+        }
+        </style>
         </div>
         <div>
             <label for="hostname"><p>Name:</p></label>
@@ -39,12 +40,12 @@
             <p1><input type="password" name="password" id="password"></p1>
         </div>
         <div>
-            <a href= "/index">
+            <a href= "/hostUserRegister">
             <button> SUBMIT </button></a>
         </div>
         <div>
-        <a href= "/hostRegister">
-            <p> Click Here to create an account</p></a>
+        <a href= "/hostRegister"> 
+            <p> Click Host to create an account</p></a>
         </a>
         </div>
     </form>
